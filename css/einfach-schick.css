@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    z-index:-1
+}
+
+#text {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Schoolbell', cursive;
+    font-size: 21px;
+    text-align: center;
+    top: 7rem;
+}
