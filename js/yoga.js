@@ -67,7 +67,7 @@ const normalWalk = ({peep, props}) => {
     const yDuration = 0.25;
 
     const tl = gsap.timeline();
-    tl.timeScale(randomRange(0.5, 1.5));
+    tl.timeScale(randomRange(0.5, 1));
     tl.to(peep, {
             duration: xDuration,
             x: endX,
@@ -129,7 +129,7 @@ class Peep {
     render(ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
-        ctx.scale(this.scaleX, 1);
+        ctx.scale(this.scaleX * 1.1, 1.1);
         ctx.drawImage(...this.drawArgs);
         ctx.restore();
     }
