@@ -17,7 +17,12 @@ body {
     display: flex;
     justify-content: center;
     font-family: 'Schoolbell', cursive;
-    font-size: 21px;
     text-align: center;
     top: 7rem;
+}
+
+h2 {
+    background-color: yellow;
+    padding: 1.2rem;
+    font-size: 2em;
 }

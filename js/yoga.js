@@ -129,7 +129,7 @@ class Peep {
     render(ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
-        ctx.scale(this.scaleX * 1.1, 1.1);
+        ctx.scale(this.scaleX * 1, 1);
         ctx.drawImage(...this.drawArgs);
         ctx.restore();
     }
