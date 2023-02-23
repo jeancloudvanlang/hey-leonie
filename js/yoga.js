@@ -1,10 +1,7 @@
-console.clear();
-console.log('lsakdfalskjdflnksd');
-
 const config = {
-    src: '../img/peeps-73-leo.png',
-    rows: 7,
-    cols: 3
+    src: '../img/peeps-10-4.png',
+    rows: 10,
+    cols: 4
 };
 
 
@@ -86,17 +83,13 @@ const normalWalk = ({peep, props}) => {
     return tl;
 };
 
-const walks = [
-    normalWalk];
+const walks = [normalWalk];
 
 
 // CLASSES
 
 class Peep {
-    constructor({
-                    image,
-                    rect
-                }) {
+    constructor({image, rect}) {
         this.image = image;
         this.setRect(rect);
 
