@@ -24,7 +24,7 @@ const getRandomFromArray = (array) =>
 // TWEEN FACTORIES
 
 const resetPeep = ({stage, peep}) => {
-    const direction = Math.random() > 0.5 ? 1 : -1;
+    const direction = peep.isTalking ? 1 : -1;
     // using an ease function to skew random to lower values to help hide that peeps have no legs
     const offsetY = 100 - 250 * gsap.parseEase('power2.in')(Math.random());
     const startY = stage.height - peep.height + offsetY;
@@ -32,10 +32,12 @@ const resetPeep = ({stage, peep}) => {
     let endX;
 
     if (direction === 1) {
+        // move right
         startX = -peep.width;
         endX = stage.width;
         peep.scaleX = 1;
     } else {
+        // move left
         startX = stage.width + peep.width;
         endX = 0;
         peep.scaleX = -1;
@@ -85,6 +87,16 @@ const normalWalk = ({peep, props}) => {
 
 const walks = [normalWalk];
 
+const talkingPeepsXY = [
+    {x: 2 * 240.7, y: 1 * 324},
+    {x: 3 * 240.7, y: 1 * 324},
+    {x: 7 * 240.7, y: 1 * 324},
+    {x: 4 * 240.7, y: 2 * 324},
+    {x: 8 * 240.7, y: 2 * 324},
+    {x: 2 * 240.7, y: 3 * 324},
+    {x: 4 * 240.7, y: 3 * 324},
+    {x: 5 * 240.7, y: 3 * 324},
+]
 
 // CLASSES
 
@@ -98,6 +110,8 @@ class Peep {
         this.anchorY = 0;
         this.scaleX = 1;
         this.walk = null;
+
+        this.isTalking = !!talkingPeepsXY.find(peep => peep.x === rect[0] && peep.y === rect[1]);
     }
 
     setRect(rect) {
